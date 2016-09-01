@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Budget</title>
+	</head>
+	<body>
+
+
+		<h1>Budget!</h1>
+
+		<% @items.each do |item| %>
+		<ul>
+			<li><%= item.name %></li>
+			<li><%= item.description %> </li>
+			<li><%=  item.pretty_price %></li>
+			<li><%= item.active.to_s %></li>
+		</ul>
+
+		<% end %>
+	</body>
+</html>

@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 	belongs_to :budgeter
 	
 	def pretty_price
-		"$#{((self.price_in_pennies.to_f) / 100).round(2)}"	
+		"$#{sprintf('%.02f', (self.price_in_pennies.to_f) / 100)}"	
 	end
 
 end

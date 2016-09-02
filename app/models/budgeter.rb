@@ -14,7 +14,7 @@ class Budgeter < ActiveRecord::Base
 	end
 
 	def pretty_total
-		"$#{((self.active_total_in_pennies.to_f) / 100).round(2)}"
+		"$#{sprintf('%.02f', (self.active_total_in_pennies.to_f) / 100)}"
 	end
 
 

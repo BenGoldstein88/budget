@@ -6,16 +6,33 @@
 	<body>
 
 
-		<h1>Budget!</h1>
+		<h1>Budget! (Current total is <%= @budgeter.pretty_total %>.)</h1>
 
 		<% @items.each do |item| %>
 		<ul>
-			<li><%= item.name %></li>
-			<li><%= item.description %> </li>
-			<li><%=  item.pretty_price %></li>
-			<li><%= item.active.to_s %></li>
+			<li>Name: <%= item.name %></li>
+			<li>Description: <%= item.description %> </li>
+			<li>Price: <%=  item.pretty_price %></li>
+			<li>Active: <%= item.active.to_s %> <%= link_to 'Toggle', item_path(item), method: :put %></li>
+			<li>
+				<%= link_to 'Delete', item_path(item),
+            	data: {:confirm => 'Are you sure?'}, method: :delete %>
+            		
+            </li>
 		</ul>
 
+		<% end %>
+
+		<%= form_for :item, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+			<%= label_tag(:name, "Name: ") %>			
+			<%= f.text_field :name %>
+			<%= label_tag(:description, "Description: ") %>
+			<%= f.text_area :description, size: "60x12" %>
+			<%= label_tag(:price_in_pennies, "Price, in pennies: ") %>
+			<%= number_field_tag(:price_in_pennies) %>
+			<%= label_tag(:active, "Active: ") %>
+			<%= check_box_tag(:active) %>
+			<%= f.submit "Create" %>
 		<% end %>
 	</body>
 </html>

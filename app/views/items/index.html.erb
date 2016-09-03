@@ -9,21 +9,21 @@
 		<h1>Budget! (Current total is <%= @budgeter.pretty_total %>.)</h1>
 
 		<% @items.each do |item| %>
-		<ul>
-			<li>Name: <%= item.name %></li>
-			<li>Description: <%= item.description %> </li>
-			<li>Price: <%=  item.pretty_price %></li>
-			<li>Active: <%= item.active.to_s %> <%= link_to 'Toggle', item_path(item), method: :put %></li>
-			<li>
-				<%= link_to 'Delete', item_path(item),
-            	data: {:confirm => 'Are you sure?'}, method: :delete %>
-            		
-            </li>
-		</ul>
+			<ul>
+				<li>Name: <%= item.name %></li>
+				<li>Description: <%= item.description %> </li>
+				<li>Price: <%=  item.pretty_price %></li>
+				<li>Active: <%= item.active.to_s %> <%= link_to 'Toggle', item_path(item), method: :put %></li>
+				<li>
+					<%= link_to 'Delete', item_path(item),
+	            	data: {:confirm => 'Are you sure?'}, method: :delete %>
+	            		
+	            </li>
+			</ul>
 
 		<% end %>
 
-		<%= form_for :item, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+		<%= form_for :item, url: {action: "create"}, html: {class: "nifty_form", id: "new_item_form"} do |f| %>
 			<%= label_tag(:name, "Name: ") %>			
 			<%= f.text_field :name %>
 			<%= label_tag(:description, "Description: ") %>
@@ -34,5 +34,7 @@
 			<%= check_box_tag(:active) %>
 			<%= f.submit "Create" %>
 		<% end %>
+
+		
 	</body>
 </html>

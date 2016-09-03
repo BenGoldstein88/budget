@@ -10,7 +10,24 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// = require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+	// alert('hello')
+
+	$('#new_item_form').on('submit', function(event) {
+		
+		console.log("What'sup. JavaScript is currenty preventing default behavior for this form submission.")
+		event.preventDefault();
+
+
+	})
+
+
+
+});
+

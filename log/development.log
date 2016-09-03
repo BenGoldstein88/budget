@@ -2199,3 +2199,1364 @@ Processing by ItemsController#index as HTML
   [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
   Rendered items/index.html.erb within layouts/application (2.7ms)
 Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/items" for ::1 at 2016-09-02 12:14:46 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xEOO/jVLxvHw1WNixqYf2/KKwb9QWTbfvsW1Yy6xNvv5Zvj8b78SyAX/0pzFNvZ38r15dXRgEGs5T+RMqGoZ4w==", "item"=>{"name"=>"Name of the thing", "description"=>"Description of the thing"}, "price_in_pennies"=>"8000", "commit"=>"Create"}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Name of the thing"], ["description", "Description of the thing"], ["price_in_pennies", 8000], ["budgeter_id", 1], ["created_at", "2016-09-02 19:14:46.704914"], ["updated_at", "2016-09-02 19:14:46.704914"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:14:46 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/items/9" for ::1 at 2016-09-02 12:14:49 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"jkdYwVVQhM/tbEvWIPb1Np1FxbavLKtXbxvsQMIcXYizYi7DD6RQ9hhG+igjZhyanXJ9fIsVjePokb1vRMdykA==", "id"=>"9"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "t"], ["updated_at", "2016-09-02 19:14:49.531019"], ["id", 9]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:14:49 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/items/9" for ::1 at 2016-09-02 12:14:50 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"yYbwZiNeymqOLVnpo7yC7va5WHwqw8C/1m20UqBfBDb0o4ZkeaoeU3sH6BegLGtC9o7gtg765gtR5+V9JoQrLg==", "id"=>"9"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "f"], ["updated_at", "2016-09-02 19:14:50.912286"], ["id", 9]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:14:50 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/items/9" for ::1 at 2016-09-02 12:14:52 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"/p7p1hzv5IqhyEWsG16dKmBVtq33Ef4LJ9KZma8XEtzDu5/URhsws1Ti9FIYznSGYGIOZ9Mo2L+gWMi2Kcw9xA==", "id"=>"9"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "t"], ["updated_at", "2016-09-02 19:14:52.700204"], ["id", 9]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:14:52 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/items/3" for ::1 at 2016-09-02 12:14:54 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"8wjc78leJxnrAfm09IidTEMNo5iw+Xym91GrGxBSjrzOLartk6rzIB4rSEr3GHTgQzobUpTAWhJw2/o0lomhpA==", "id"=>"3"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "t"], ["updated_at", "2016-09-02 19:14:54.867818"], ["id", 3]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:14:54 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/items/7" for ::1 at 2016-09-02 12:15:35 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"b4yFjJFNISmKgsYLE0gN4t/lOaNou/nxT3/UWTWC/3RSqfOOy7n1EH+od/UQ2ORO39KBaUyC30XI9YV2s1nQbA==", "id"=>"7"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "f"], ["updated_at", "2016-09-02 19:15:35.075046"], ["id", 7]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:35 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/items/3" for ::1 at 2016-09-02 12:15:36 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"Y4N7D1Rle6mKG5Ibtup4LipJP3QUWKAWAyfT1riWDahepg0NDpGvkH8xI+W1epGCKn6HvjBhhqKErYL5Pk0isA==", "id"=>"3"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "f"], ["updated_at", "2016-09-02 19:15:36.886177"], ["id", 3]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:36 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 38ms (Views: 35.9ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/items/8" for ::1 at 2016-09-02 12:15:38 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"EVMRnGE4PPgcIkibNFNAqiyaHMuYqA+VyF0lrXkNmaQsdmeeO8zowekI+WU3w6kGLK2kAbyRKSFP13SC/9a2vA==", "id"=>"8"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "f"], ["updated_at", "2016-09-02 19:15:38.274647"], ["id", 8]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:38 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/items/9" for ::1 at 2016-09-02 12:15:39 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"zZdMIH6TIFLd/FOYW0QJEowl7gKwzH1egUo+s4gwXKHwsjoiJGf0ayjW4mZY1OC+jBJWyJT1W+oGwG+cDutzuQ==", "id"=>"9"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "f"], ["updated_at", "2016-09-02 19:15:39.651134"], ["id", 9]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:39 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.3ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/items/9" for ::1 at 2016-09-02 12:15:40 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"8F2R02CkwrJKc4uPwo1iT7DE4H7Iu73KHh+55W6Cr6fNeOfROlAWi79ZOnHBHYvjsPNYtOyCm36ZlejK6FmAvw==", "id"=>"9"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "t"], ["updated_at", "2016-09-02 19:15:40.551278"], ["id", 9]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:40 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/items/8" for ::1 at 2016-09-02 12:15:41 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"1h5NQIf9LSnggQ4mWDm7qFNzwFgr+v00koqMxzhFeTzrOztC3Qn5EBWrv9hbqVIEU0R4kg/D24AVAN3ovp5WJA==", "id"=>"8"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "t"], ["updated_at", "2016-09-02 19:15:41.590488"], ["id", 8]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:41 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/items/8" for ::1 at 2016-09-02 12:15:42 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"V4rQQkpc9DPraN1s5ZYtycG0YUz+l7JwSTT2NmdK41Rqr6ZAEKggCh5CbJLmBsRlwYPZhtqulMTOvqcZ4ZHMTA==", "id"=>"8"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "f"], ["updated_at", "2016-09-02 19:15:42.277064"], ["id", 8]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:42 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/items/8" for ::1 at 2016-09-02 12:15:42 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"bsXqJqITGBd78PVphMDXkvaH6mLC6rgcpt4wXPLmX69T4Jwk+OfMLo7aRJeHUD4+9rBSqObTnqghVGFzdD1wtw==", "id"=>"8"}
+  [1m[35mItem Load (0.5ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "t"], ["updated_at", "2016-09-02 19:15:42.798844"], ["id", 8]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:42 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/items/7" for ::1 at 2016-09-02 12:15:43 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"r/4dlsY4nov8pvCkcWkm2eUHGywTN+p0FDyv4XaF1V6S22uUnMxKsgmMQVpy+c915TCj5jcOzMCTtv7O8F76Rg==", "id"=>"7"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "t"], ["updated_at", "2016-09-02 19:15:43.880999"], ["id", 7]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:15:43 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/items" for ::1 at 2016-09-02 12:16:00 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GUwUzyoU6LBtx1scVtrYI40xXFNXzBTvTMeD4w2iqCUkaWLNcOA8iZjt6uJVSjGPjQbkmXP1MlvLTdLMi3mHPQ==", "item"=>{"name"=>"Kristen's item", "description"=>"an item from Kristen"}, "price_in_pennies"=>"1899", "active"=>"1", "commit"=>"Create"}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "active", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "Kristen's item"], ["description", "an item from Kristen"], ["price_in_pennies", 1899], ["active", "t"], ["budgeter_id", 1], ["created_at", "2016-09-02 19:16:00.005220"], ["updated_at", "2016-09-02 19:16:00.005220"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:16:00 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/items/9" for ::1 at 2016-09-02 12:17:03 -0700
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5e7mY3HI8FO+ygPSO0aQ8M/zx1mSA6QXpam3Pjmx32vYy5BhKzwkakvgsiw41nlcz8R/k7Y6gqMiI+YRv2rwcw==", "id"=>"9"}
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 9]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:17:03 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/items/3" for ::1 at 2016-09-02 12:17:06 -0700
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FjAYt7fh+nB61YRVN7zyp8sY+KP2637z/M+B6fUfzKorFW617RUuSY//Nas0LBsLyy9AadLSWEd7RdDGc8Tjsg==", "id"=>"3"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mSQL (1.6ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 3]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:17:06 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:22:57 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:22:57 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:22:57 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:22:57 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:22:58 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:22:58 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:22:58 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-02 12:22:58 -0700
+
+
+Started POST "/items" for ::1 at 2016-09-02 12:23:04 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iS3WpG84vTO+Vav8Y7DWdTZ3aEAv7jKi/U6z48o+rAm0CKCmNcxpCkt/GgJgID/ZNkDQigvXFBZ6xOLMTOWDEQ==", "item"=>{"name"=>"", "description"=>""}, "price_in_pennies"=>"", "commit"=>"Create"}
+  [1m[35mBudgeter Load (0.3ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::RecordInvalid (Validation failed: Name can't be blank, Description can't be blank, Price in pennies can't be blank):
+  app/controllers/items_controller.rb:31:in `create'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.0ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.6ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:23:25 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 71ms (Views: 69.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-89ffce914a799dfd51cb7a5b4afae59eab3ba15f8b7513bdf432c369065bb6ef.js?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:23:26 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:23:48 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/assets/application.self-89ffce914a799dfd51cb7a5b4afae59eab3ba15f8b7513bdf432c369065bb6ef.js?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:23:49 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:23:53 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started GET "/assets/application.self-89ffce914a799dfd51cb7a5b4afae59eab3ba15f8b7513bdf432c369065bb6ef.js?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:23:53 -0700
+
+
+Started POST "/items" for ::1 at 2016-09-02 12:23:54 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LpH2JMiGCR3Q1wtYR6nT4AEszE7PREcB7Rci4gumKu8TtIAmknLdJCX9uqZEOTpMARt0hOt9YbVqnXPNjX0F9w==", "item"=>{"name"=>"", "description"=>""}, "price_in_pennies"=>"", "commit"=>"Create"}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordInvalid (Validation failed: Name can't be blank, Description can't be blank, Price in pennies can't be blank):
+  app/controllers/items_controller.rb:31:in `create'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (55.0ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:23:59 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/assets/application.self-89ffce914a799dfd51cb7a5b4afae59eab3ba15f8b7513bdf432c369065bb6ef.js?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:24:00 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:24:47 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-8f32b101681134ff0d763f149d7b38d93c6ff1e6a7ae47fa4ffebf390a219f47.js?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:24:47 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:24:51 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:25:59 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:25:59 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:25:59 -0700
+
+
+Started GET "/assets/application.self-6cb974607d1084642eacd8f5e50eb7d3a1b7d84096ec6d0e8f06d3e621769868.js?body=1" for ::1 at 2016-09-02 12:25:59 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:26:01 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:26:02 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:26:02 -0700
+
+
+Started GET "/assets/application.self-6cb974607d1084642eacd8f5e50eb7d3a1b7d84096ec6d0e8f06d3e621769868.js?body=1" for ::1 at 2016-09-02 12:26:02 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:26:11 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:26:11 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:26:11 -0700
+
+
+Started GET "/assets/application.self-ccfdceddf6ae59701cde2f65b9d6a10e8b6b052be6b54313b4bdf3458cfd170d.js?body=1" for ::1 at 2016-09-02 12:26:11 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:26:45 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-4066c47a406bfb40628ceff57be8af5d1fc56d9eafb40ec9c8e557e0a4e38e70.js?body=1" for ::1 at 2016-09-02 12:26:45 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:26:45 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:26:45 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:32:52 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 69ms (Views: 68.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/assets/application.self-320ce539b1c65687a5a1d03456b43569d7051b127de57b68ecb60195fb313713.js?body=1" for ::1 at 2016-09-02 12:32:52 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:33:00 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 64ms (Views: 62.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started GET "/assets/application.self-df1335ab5c2bfeeb77b9c8179c3f4d53ed845bd515b28d1bbd5d8c237797693f.js?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:33:00 -0700
+
+
+Started POST "/items" for ::1 at 2016-09-02 12:33:03 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f+vI1Y4ctkDaEyhkhK6Z1cqcVTGtQ5/030R5NDAtGKJCzr7X1OhieS85mZqHPnB5yqvt+4l6uUBYzigbtvY3ug==", "item"=>{"name"=>"", "description"=>""}, "price_in_pennies"=>"", "commit"=>"Create"}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordInvalid (Validation failed: Name can't be blank, Description can't be blank, Price in pennies can't be blank):
+  app/controllers/items_controller.rb:31:in `create'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.0ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (118.1ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:33:13 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/assets/application.self-df1335ab5c2bfeeb77b9c8179c3f4d53ed845bd515b28d1bbd5d8c237797693f.js?body=1" for ::1 at 2016-09-02 12:33:13 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:34:00 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/assets/application.self-df1335ab5c2bfeeb77b9c8179c3f4d53ed845bd515b28d1bbd5d8c237797693f.js?body=1" for ::1 at 2016-09-02 12:34:00 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:34:05 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:34:05 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:34:05 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:34:05 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:34:05 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:34:06 -0700
+
+
+Started GET "/assets/application.self-df1335ab5c2bfeeb77b9c8179c3f4d53ed845bd515b28d1bbd5d8c237797693f.js?body=1" for ::1 at 2016-09-02 12:34:06 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:34:06 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:34:13 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 68ms (Views: 66.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/assets/application.self-18ab37c54c09b7116acee6fba26a8e47cb9cbaa16d4532a6d5837881d572c2e3.js?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:34:13 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:37:16 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-0b0cc6a227e4ec9f18d30aa7796d57fca93d59415c605ef27e39cd8e02203c7d.js?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:37:16 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:41:00 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 66ms (Views: 65.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/assets/application.self-98c95a19df2378bf401ef0f8faf66b97064c43e43aa0ab487e601a473f8dd320.js?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:41:00 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:41:30 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started GET "/assets/application.self-8c2d8d79b54a309a6cfa24d3a215dfd7f2d04ffc4d9c7404db1bf2ba6bbef103.js?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:41:30 -0700
+
+
+Started POST "/items" for ::1 at 2016-09-02 12:41:36 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zy7JPhUxmnK+k1NI0h3w8SUy7jKFR6k5XomYGRN1DDhaC788T8VOS0u54rbRjRldJQVW+KF+j43ZA8k2la4jIA==", "item"=>{"name"=>"ser", "description"=>"wer"}, "price_in_pennies"=>"2341", "active"=>"1", "commit"=>"Create"}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "active", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "ser"], ["description", "wer"], ["price_in_pennies", 2341], ["active", "t"], ["budgeter_id", 1], ["created_at", "2016-09-02 19:41:36.367942"], ["updated_at", "2016-09-02 19:41:36.367942"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:41:36 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/items/11" for ::1 at 2016-09-02 12:41:41 -0700
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dsSCVH2RMZP5dn6IpRgQwHJpjnUkpqDcyCcDVpI2JtxL4fRWJ2Xlqgxcz3amiPlscl42vwCfhmhPrVJ5FO0JxA==", "id"=>"11"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 11]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:41:41 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:43:48 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 483ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (SyntaxError: [stdin]:5:19: reserved word 'function'):
+    3: <head>
+    4:   <title>Budget</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__2037340273286277620_70156462933280'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (66.7ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.7ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (123.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:44:52 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.4ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (SyntaxError: [stdin]:5:19: reserved word 'function'):
+    3: <head>
+    4:   <title>Budget</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__2037340273286277620_70156462933280'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.6ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:45:54 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (SyntaxError: [stdin]:5:19: reserved word 'function'):
+    3: <head>
+    4:   <title>Budget</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__2037340273286277620_70156462933280'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (117.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:49:27 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 204ms (Views: 201.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/assets/application.self-853c1bb0e514c0104fa9b48f7f0d2d3f5885894a6d4bbf62d2ef463f3f5374fc.js?body=1" for ::1 at 2016-09-02 12:49:27 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:49:47 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 68ms (Views: 65.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/assets/application.self-5bbeeb23ddcdfa42482699ac13521513c750eb0854d491aff4eee82204944904.js?body=1" for ::1 at 2016-09-02 12:49:48 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:50:21 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 72ms (Views: 70.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:50:21 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:50:22 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-09-02 12:50:23 -0700
+
+
+Started GET "/" for ::1 at 2016-09-02 12:50:55 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( items.css )` to `config/initializers/assets.rb` and restart your server):
+    3: <head>
+    4:   <title>Budget</title>
+    5:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:     <%= stylesheet_link_tag 'items', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__2037340273286277620_70156483708220'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (115.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:51:05 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( items.js )` to `config/initializers/assets.rb` and restart your server):
+    3: <head>
+    4:   <title>Budget</title>
+    5:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:     <%= javascript_include_tag 'items', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__2037340273286277620_70156437669420'
+
+
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.6ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (55.7ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/nopotatoes/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (127.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:51:31 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.1ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 64ms (Views: 62.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started GET "/assets/application.self-5bbeeb23ddcdfa42482699ac13521513c750eb0854d491aff4eee82204944904.js?body=1" for ::1 at 2016-09-02 12:51:31 -0700
+
+
+Started PUT "/items/7" for ::1 at 2016-09-02 12:52:20 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"+OzaQU9QheipvYuKmro9zza/fmCIc1yPydunT+yiBUnFyaxDFaRR0VyXOnSZKtRjNojGqqxKejtOUfZgankqUQ==", "id"=>"7"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["active", "f"], ["updated_at", "2016-09-02 19:52:20.204222"], ["id", 7]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:52:20 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.3ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 59ms (Views: 57.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-1d238d9e14833cdb5601e516e5f5e16387625ed62a7bf1ef91dad6d86bd63dff.js?body=1" for ::1 at 2016-09-02 12:52:20 -0700
+
+
+Started PUT "/items/7" for ::1 at 2016-09-02 12:52:21 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"ky8dfPqenD0l+qz3vStirWsgAOm28omCDQ6lnWqOR3muCmt+oGpIBNDQHQm+u4sBaxe4I5LLrzaKhPSy7FVoYQ==", "id"=>"7"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "items" SET "active" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["active", "t"], ["updated_at", "2016-09-02 19:52:21.687062"], ["id", 7]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:52:21 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mBudgeter Load (0.2ms)[0m  [1mSELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?  [["budgeter_id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/items/10" for ::1 at 2016-09-02 12:52:33 -0700
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JF+ybaZE3HkNxcE2h5A5HeNkX8UirQsVi37V6+U7oFQZesRv/LAIQPjvcMiEANCx41PnDwaULaEM9ITEY+CPTA==", "id"=>"10"}
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 10]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-02 12:52:33 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."budgeter_id" = ?[0m  [["budgeter_id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  Rendered items/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.3ms)

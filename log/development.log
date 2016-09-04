@@ -5297,3 +5297,198 @@ Migrating to CreateBudgeters (20160901200829)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Test Item 3"], ["description", "Well that was weirdest."], ["price_in_pennies", 1999], ["budgeter_id", 1], ["created_at", "2016-09-04 04:30:53.768106"], ["updated_at", "2016-09-04 04:30:53.768106"]]
   [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:31:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.5ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 30ms (Views: 6.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:33:35 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:33:52 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"new guy", "description"=>"ohyeah", "price"=>"19002", "item"=>{"name"=>"new guy", "description"=>"ohyeah"}}
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "new guy"], ["description", "ohyeah"], ["price_in_pennies", 19002], ["budgeter_id", 1], ["created_at", "2016-09-04 04:33:52.484634"], ["updated_at", "2016-09-04 04:33:52.484634"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 285ms (Views: 273.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:33:55 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.3ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:36:47 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:36:55 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"ser", "description"=>"sef", "price"=>"02", "item"=>{"name"=>"ser", "description"=>"sef"}}
+  [1m[35mBudgeter Load (0.4ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.1ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ser"], ["description", "sef"], ["price_in_pennies", 2], ["budgeter_id", 1], ["created_at", "2016-09-04 04:36:55.281522"], ["updated_at", "2016-09-04 04:36:55.281522"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 52ms (Views: 40.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:40:14 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 29ms (Views: 7.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:40:19 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"sss", "description"=>"sss", "price"=>"60", "item"=>{"name"=>"sss", "description"=>"sss"}}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "sss"], ["description", "sss"], ["price_in_pennies", 60], ["budgeter_id", 1], ["created_at", "2016-09-04 04:40:19.767907"], ["updated_at", "2016-09-04 04:40:19.767907"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 299ms (Views: 285.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:41:01 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.5ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 34ms (Views: 29.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:41:04 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"sdf", "description"=>"sdf", "price"=>"05", "item"=>{"name"=>"sdf", "description"=>"sdf"}}
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "sdf"], ["description", "sdf"], ["price_in_pennies", 5], ["budgeter_id", 1], ["created_at", "2016-09-04 04:41:04.825470"], ["updated_at", "2016-09-04 04:41:04.825470"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 30ms (Views: 23.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:50:24 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (2.0ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 52ms (Views: 17.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:51:31 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:52:02 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"something", "description"=>"else", "price"=>"100", "item"=>{"name"=>"something", "description"=>"else"}}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "something"], ["description", "else"], ["price_in_pennies", 100], ["budgeter_id", 1], ["created_at", "2016-09-04 04:52:02.538933"], ["updated_at", "2016-09-04 04:52:02.538933"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 57ms (Views: 50.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:53:38 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.3ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 45ms (Views: 38.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:54:15 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:54:23 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.3ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (1.0ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:54:29 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"sim", "description"=>"oiwj", "price"=>"4", "item"=>{"name"=>"sim", "description"=>"oiwj"}}
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "sim"], ["description", "oiwj"], ["price_in_pennies", 4], ["budgeter_id", 1], ["created_at", "2016-09-04 04:54:29.308165"], ["updated_at", "2016-09-04 04:54:29.308165"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 64ms (Views: 56.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 21:59:29 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (14.6ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 66ms (Views: 26.1ms | ActiveRecord: 15.1ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 21:59:38 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"AAAAAA", "description"=>"AAAA", "price"=>"022", "item"=>{"name"=>"AAAAAA", "description"=>"AAAA"}}
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "AAAAAA"], ["description", "AAAA"], ["price_in_pennies", 22], ["budgeter_id", 1], ["created_at", "2016-09-04 04:59:38.260451"], ["updated_at", "2016-09-04 04:59:38.260451"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 77ms (Views: 60.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 22:38:51 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.9ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (1.0ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 41ms (Views: 11.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 22:38:51 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/items" for ::1 at 2016-09-03 22:38:59 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mBudgeter Load (0.2ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/items" for ::1 at 2016-09-03 22:38:59 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"name"=>"BBBB", "description"=>"CCCC", "price"=>"999", "item"=>{"name"=>"BBBB", "description"=>"CCCC"}}
+  [1m[35mBudgeter Load (0.1ms)[0m  SELECT  "budgeters".* FROM "budgeters"  ORDER BY "budgeters"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "items" ("name", "description", "price_in_pennies", "budgeter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "BBBB"], ["description", "CCCC"], ["price_in_pennies", 999], ["budgeter_id", 1], ["created_at", "2016-09-04 05:38:59.203151"], ["updated_at", "2016-09-04 05:38:59.203151"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  Rendered items/create.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 175ms (Views: 164.1ms | ActiveRecord: 2.2ms)

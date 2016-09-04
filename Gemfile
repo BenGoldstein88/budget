@@ -27,6 +27,8 @@ gem 'bootstrap-sass'
 
 gem 'react-rails'
 
+gem 'rack-cors'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

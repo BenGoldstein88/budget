@@ -54,9 +54,14 @@ class ItemsController < ApplicationController
 	end
 
 	def destroy
+		p "*"*500
+		p params
 		@item = Item.find(params[:id])
 		@item.delete
-		redirect_to root_path
+
+		response = {}
+		render json: response
+		# redirect_to root_path
 	end
 
 end

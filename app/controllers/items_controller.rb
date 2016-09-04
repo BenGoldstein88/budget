@@ -4,6 +4,13 @@ class ItemsController < ApplicationController
 	def index
 		@budgeter = Budgeter.first
 		@items = Item.all
+
+		response = {
+			budgeter: @budgeter,
+			items: @items
+			}
+
+		render json: response
 	end
 
 	def new
@@ -26,13 +33,7 @@ class ItemsController < ApplicationController
 			description = params[:description]
 			price_in_pennies = params[:price].to_i
 			budgeter_id = Budgeter.first.id
-			p name
-			p description
-			p price_in_pennies
-			p budgeter_id
-
 			Item.create!(name: name, description: description, price_in_pennies: price_in_pennies, budgeter_id: budgeter_id)
-			return nil
 
 		# else
 		# 	item_params = params[:item]
